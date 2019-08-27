@@ -43,7 +43,7 @@ end
     author = Petsposts.Seeds.insert_user(raw_post.author)
     message = Petsposts.Seeds.insert_message(raw_post.message)
     %Post {
-      author: author.id,
-      message: message.id
+      author_id: author.id,
+      message_id: message.id
     } |> Repo.insert!()
 end)

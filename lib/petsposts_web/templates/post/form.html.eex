@@ -1,11 +1,24 @@
 <%= form_for @changeset, @action, fn f -> %>
-  <%= if @changeset.action do %>
-    <div class="alert alert-danger">
-      <p>Oops, something went wrong! Please check the errors below.</p>
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="field">
+        <p class="control">
+          <%= text_input f, :text, class: "textarea" %>
+        </p>
+        <%= error_tag f, :text %>
+      </div>
+      <div class="field">
+        <p class="control">
+          <%= submit "Submit Post", class: "button" %>
+        </p>
+      </div>
     </div>
-  <% end %>
-
+  </article>
   <div>
-    <%= submit "Save" %>
   </div>
 <% end %>

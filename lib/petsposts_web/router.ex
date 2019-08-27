@@ -19,8 +19,4 @@ defmodule PetspostsWeb.Router do
     resources "/", PostController
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", PetspostsWeb do
-  #   pipe_through :api
-  # end
 end

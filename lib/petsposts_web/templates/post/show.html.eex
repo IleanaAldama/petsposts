@@ -1,8 +1,33 @@
-<h1>Show Post</h1>
-
-<ul>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.post_path(@conn, :edit, @post) %></span>
-<span><%= link "Back", to: Routes.post_path(@conn, :index) %></span>
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64">
+      <img class="is-rounded" src="<%= @post.author.avatar %>" />
+    </p>
+  </figure>
+  <div class="media-content">
+    <div class="content">
+      <p>
+        <strong><%= "#{@post.author.name} #{@post.author.last_name}" %></strong>
+        <small><%= @post.author.username %></small>
+        <small><%= @post.message.inserted_at %></small>
+        <br />
+        <%= @post.message.text %>
+      </p>
+      <p class="image">
+        <img style="width: 300px" src="<%= @post.message.image_link %>" />
+      </p>
+    </div>
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <a class="level-item">
+          <span class="icon is-small" style="padding-right: 5px"><i class="fa fa-eye"></i></span>
+          <span class="is-small"><%= @post.message.views%></span>
+        </a>
+        <a class="level-item">
+          <span class="icon is-small" style="padding-right: 5px"><i class="fa fa-heart"></i></span>
+          <span class="is-small"><%= @post.message.likes %></span>
+        </a>
+      </div>
+    </nav>
+  </div>
+</article>

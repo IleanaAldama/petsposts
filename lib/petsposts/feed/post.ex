@@ -3,8 +3,8 @@ defmodule Petsposts.Feed.Post do
   import Ecto.Changeset
 
   schema "posts" do
-    field :author, :id
-    field :message, :id
+    belongs_to :message, Petsposts.Feed.Message
+    belongs_to :author, Petsposts.Accounts.User
 
     timestamps()
   end
