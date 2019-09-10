@@ -25,6 +25,20 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Configure your database
+config :petsposts, Petsposts.Repo,
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASS"),
+  database: System.get_env("DB_NAME"),
+  hostname: System.get_env("DB_HOST"),
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
+config :petsposts, :api_auth_token,
+  System.get_env("API_AUTH_TOKEN")
+
+
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

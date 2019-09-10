@@ -29,8 +29,6 @@ defmodule Petsposts.Seeds do
     %Message {
       image_link: raw_message.body.image,
       text: raw_message.body.text,
-      likes: raw_message.likes,
-      views: raw_message.views,
     } |> Repo.insert!()
   end
 end
@@ -44,6 +42,8 @@ end
     message = Petsposts.Seeds.insert_message(raw_post.message)
     %Post {
       author_id: author.id,
-      message_id: message.id
+      message_id: message.id,
+      likes: raw_post.message.likes,
+      views: raw_post.message.views,
     } |> Repo.insert!()
 end)

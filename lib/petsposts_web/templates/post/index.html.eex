@@ -6,3 +6,54 @@
     <%= render "show.html", %{post: post} %>
   <% end %>
 </div>
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+  <%= if @page > 1 do %>
+    <a class="pagination-previous" href="<%= path(@conn, page: @prev_page)%>">
+      Previous
+    </a>
+  <% end %>
+  <%= if (@page) < @total_pages do %>
+    <a class="pagination-next" href="<%= path(@conn, page: @next_page)%>">
+      Next page
+    </a>
+  <% end %>
+  <ul class="pagination-list">
+    <%= if @page > 2 do %>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 1" href="<%= path(@conn, page: 1)%>">
+          1
+        </a>
+      </li>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <% end %>
+      <%= if @page > 1 do %>
+      <li>
+        <a class="pagination-link" aria-label="Goto page <%= @prev_page %>" href="<%= path(@conn, page: @prev_page)%>">
+          <%= @prev_page %>
+        </a>
+      </li>
+    <% end %>
+    <li>
+      <a class="pagination-link is-current" aria-label="Page <%= @page %>" aria-current="page">
+        <%= @page %>
+      </a>
+    </li>
+
+     <%= if @page < @total_pages do %>
+      <li>
+        <a class="pagination-link" aria-label="Goto page <%= @next_page %>" href="<%= path(@conn, page: @next_page)%>">
+          <%= @next_page %>
+        </a>
+      </li>
+     <% end %>
+      <%= if @next_page < @total_pages do %>
+      <li><span class="pagination-ellipsis">&hellip;</span></li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page <%= @total_pages %>" href="<%= path(@conn, page: @total_pages)%>">
+          <%=   @total_pages %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+

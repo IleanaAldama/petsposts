@@ -21,11 +21,11 @@
       <div class="level-left">
         <a class="level-item">
           <span class="icon is-small" style="padding-right: 5px"><i class="fa fa-eye"></i></span>
-          <span class="is-small"><%= @post.message.views%></span>
+          <span class="is-small"><%= @post.views%></span>
         </a>
         <a class="level-item">
           <span class="icon is-small" style="padding-right: 5px"><i class="fa fa-heart"></i></span>
-          <span class="is-small"><%= @post.message.likes %></span>
+          <span class="is-small"><%= @post.likes %></span>
         </a>
       </div>
     </nav>

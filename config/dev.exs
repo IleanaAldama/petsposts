@@ -1,14 +1,5 @@
 use Mix.Config
 
-# Configure your database
-config :petsposts, Petsposts.Repo,
-  username: "postgres",
-  password: "",
-  database: "petsposts_dev",
-  hostname: "localhost",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
-
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
@@ -20,15 +11,7 @@ config :petsposts, PetspostsWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
-  watchers: [
-    node: [
-      "node_modules/webpack/bin/webpack.js",
-      "--mode",
-      "development",
-      "--watch-stdin",
-      cd: Path.expand("../assets", __DIR__)
-    ]
-  ]
+  watchers: []
 
 # ## SSL Support
 #

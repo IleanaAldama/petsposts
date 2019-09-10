@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+  web:
+    command: mix phx.server
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 4000:4000
+    environment:
+      - MIX_ENV=dev
+      - DB_USERNAME=postgres
+      - DB_PASS=""
+      - DB_NAME=petsposts-dev
+      - DB_HOST=db
+      - API_AUTH_TOKEN=123
+    networks:
+      - default
+    volumes:
+      - .:/app
+  db:
+    image: postgres:latest
+    networks:
+      default:
+        aliases:
+          - db
+
+networks:
+  default:

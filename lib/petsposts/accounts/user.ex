@@ -2,6 +2,8 @@ defmodule Petsposts.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @derive {Jason.Encoder, only: [:id, :avatar, :email, :last_name, :name, :username, :inserted_at]}
+
   schema "users" do
     field :avatar, :string
     field :email, :string
