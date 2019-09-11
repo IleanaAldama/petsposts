@@ -11,11 +11,11 @@ config :petsposts,
   ecto_repos: [Petsposts.Repo]
 
 # Configures the endpoint
-config :petsposts, PetspostsWeb.Endpoint,
-  url: [host: "localhost"],
-  secret_key_base: "nVno91xQnZyolRHyLz/+oT5wzTZ06by95Qe3rw0SpliMOw8gThZiTi6ySByhbYVA",
-  render_errors: [view: PetspostsWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Petsposts.PubSub, adapter: Phoenix.PubSub.PG2]
+# config :petsposts, PetspostsWeb.Endpoint,
+#   url: [host: "localhost"],
+#   secret_key_base: "nVno91xQnZyolRHyLz/+oT5wzTZ06by95Qe3rw0SpliMOw8gThZiTi6ySByhbYVA",
+#   render_errors: [view: PetspostsWeb.ErrorView, accepts: ~w(html json)],
+#   pubsub: [name: Petsposts.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
